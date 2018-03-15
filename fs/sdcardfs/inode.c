@@ -20,7 +20,6 @@
 
 #include "sdcardfs.h"
 #include <linux/fs_struct.h>
-#include <linux/ratelimit.h>
 
 /* Do not directly use this function. Use OVERRIDE_CRED() instead. */
 const struct cred *override_fsids(struct sdcardfs_sb_info *sbi,
@@ -34,14 +33,10 @@ const struct cred *override_fsids(struct sdcardfs_sb_info *sbi,
 	if (!cred)
 		return NULL;
 
-	if (sbi->options.gid_derivation) {
-		if (data->under_obb)
-			uid = AID_MEDIA_OBB;
-		else
-			uid = multiuser_get_uid(data->userid, sbi->options.fs_low_uid);
-	} else {
-		uid = sbi->options.fs_low_uid;
-	}
+	if (data->under_obb)
+		uid = AID_MEDIA_OBB;
+	else
+		uid = multiuser_get_uid(data->userid, sbi->options.fs_low_uid);
 	cred->fsuid = make_kuid(&init_user_ns, uid);
 	cred->fsgid = make_kgid(&init_user_ns, sbi->options.fs_low_gid);
 
