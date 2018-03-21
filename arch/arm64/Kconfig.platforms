@@ -322,6 +322,14 @@ config EXYNOS_DTBH_PAGE_SIZE
 	  the Exynos boot image.
 	  Must be divisible by 2048.
 
+config MODEL_STARLTE
+	bool "Samsung Galaxy S9"
+	depends on SOC_EXYNOS9810
+
+config MODEL_STAR2LTE
+	bool "Samsung Galaxy S9 Plus"
+	depends on SOC_EXYNOS9810
+
 endif
 
 config ZONE_MOVABLE
