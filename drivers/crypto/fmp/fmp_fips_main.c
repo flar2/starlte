@@ -58,7 +58,7 @@ static dev_t find_devt_for_selftest(struct exynos_fmp *fmp,
 	uint64_t size;
 	uint64_t size_list[MAX_SCAN_PART];
 	dev_t devt_list[MAX_SCAN_PART];
-	dev_t devt_scan, devt;
+	dev_t devt_scan, devt = 0;
 	struct block_device *bdev;
 	struct device *dev = fmp->dev;
 	fmode_t fmode = FMODE_WRITE | FMODE_READ;

@@ -281,7 +281,7 @@ void gpu_fence_debug_check_dependency_atom(struct kbase_jd_atom *katom)
 
 int gpu_job_fence_status_dump(struct sync_file *timeout_sync_file)
 {
-	struct device *dev;
+	struct device *dev = NULL;
 	struct list_head *entry;
 	const struct list_head *kbdev_list;
 	struct kbase_device *kbdev = NULL;

@@ -1318,7 +1318,7 @@ int get_resource_size_by_name(struct panel_info *panel_data, char *name)
 int panel_rx_nbytes(struct panel_device *panel,
 		u32 type, u8 *buf, u8 addr, u8 pos, u8 len)
 {
-	int ret, read_len, remained = len, index = 0;
+	int ret = 0, read_len, remained = len, index = 0;
 	static char gpara[] = {0xB0, 0x00};
 
 	if (panel == NULL) {

@@ -213,7 +213,7 @@ static int m2m1shot_buffer_get_userptr(struct m2m1shot_device *m21dev,
 {
 	int i, ret = 0;
 	struct dma_buf *dmabuf;
-	off_t offset;
+	off_t offset = 0;
 
 	for (i = 0; i < buffer->num_planes; i++) {
 		dmabuf = m2m1shot_buffer_check_userptr(m21dev,
