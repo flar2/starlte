@@ -119,3 +119,7 @@ all.config
 *.list
 out/*
 scripts/rkp_cfp/tmp/*
+scripts/rkp_cfp/common.pyc
+arch/arm64/boot/dtb.img
+drivers/gator_5.27/gator_src_md5.h
+firmware/five/ffffffff000000000000000000000072.tlbin
