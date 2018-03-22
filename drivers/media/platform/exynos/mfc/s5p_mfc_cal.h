@@ -81,7 +81,7 @@ static inline void s5p_mfc_risc_on(struct s5p_mfc_dev *dev)
 
 static inline void s5p_mfc_risc_off(struct s5p_mfc_dev *dev)
 {
-	unsigned int status;
+	unsigned int status = 0;
 	unsigned long timeout;
 
 	timeout = jiffies + msecs_to_jiffies(MFC_BW_TIMEOUT);

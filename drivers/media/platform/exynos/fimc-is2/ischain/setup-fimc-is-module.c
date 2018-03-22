@@ -54,7 +54,7 @@ static int exynos_fimc_is_module_pin_control(struct fimc_is_module_enum *module,
 	u32 voltage = pin_ctrls->voltage;
 	u32 act = pin_ctrls->act;
 	int ret = 0;
-	int active_count;
+	int active_count = 0;
 	unsigned long flags;
 
 	if (pin_ctrls->shared_rsc_type) {

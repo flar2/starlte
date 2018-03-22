@@ -341,7 +341,7 @@ void knox_collect_socket_data(struct socket *sock)
 
 	struct timespec close_timespec;
 
-	struct ipv6_pinfo *np;
+	struct ipv6_pinfo *np = NULL;
 	char ipv6_address[INET6_ADDRSTRLEN_NAP] = {0};
 
 	char full_process_name[128] = {0};

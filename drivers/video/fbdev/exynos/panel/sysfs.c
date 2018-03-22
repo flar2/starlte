@@ -1254,7 +1254,7 @@ static int set_alpm_mode(struct panel_device *panel, int mode)
 static ssize_t alpm_store(struct device *dev,
 	struct device_attribute *attr, const char *buf, size_t size)
 {
-	int value, rc, ret;
+	int value, rc, ret = 0;
 	struct panel_device *panel = dev_get_drvdata(dev);
 	struct panel_info *panel_data = &panel->panel_data;
 

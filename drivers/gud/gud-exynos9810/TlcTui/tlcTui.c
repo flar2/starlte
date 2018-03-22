@@ -543,7 +543,7 @@ int tlc_ack_cmd(struct tlc_tui_response_t *rsp)
 int tlc_display_cmd(struct tlc_tui_display_t *rsp_id)
 {
 	g_display = *rsp_id;
-	uint32_t r0, r1, r2, r3;
+	uint32_t r0 = 0, r1 = 0, r2 = 0, r3 = 0;
 	bool ret = 0;
 
 	if (g_display.width == 0 || g_display.height == 0) {

@@ -55,7 +55,7 @@ static int maxdsm_power_check(
 static void maxdsm_power_work(struct work_struct *work)
 {
 	struct maxim_dsm_power *mdp;
-	unsigned int power, power_r, stereo = 0;
+	unsigned int power, power_r = 0, stereo = 0;
 	unsigned long diff;
 
 	mdp = container_of(work, struct maxim_dsm_power, work.work);

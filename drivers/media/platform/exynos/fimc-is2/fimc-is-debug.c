@@ -1003,7 +1003,7 @@ int fimc_is_debug_info_dump(struct seq_file *s, struct fimc_is_debug_event *debu
 		struct timeval tv;
 		struct fimc_is_debug_event_log *log_critical;
 		struct fimc_is_debug_event_log *log_normal;
-		struct fimc_is_debug_event_log *log_print;
+		struct fimc_is_debug_event_log *log_print = NULL;
 
 		if ((latest_normal < 0) || !(fimc_is_debug_event.log_filter & FIMC_IS_EVENT_NORMAL))
 			normal_done = 1; /* normal log empty */
