@@ -7551,9 +7551,6 @@
   #address-cells = <2>;
   #size-cells = <1>;
   ranges;
-  pinctrl-names = "default", "idle";
-  pinctrl-0 = <&aud_codec_mclk>;
-  pinctrl-1 = <&aud_codec_mclk_idle>;
   quirks = "try to asrc off";
   #sound-dai-cells = <1>;
   samsung,power-domain = <&pd_aud>;
@@ -10970,7 +10967,7 @@ samsung,tmu_sensor_type = <0x8>;
      regulator-max-microvolt = <1300000>;
      regulator-always-on;
      regulator-ramp-delay = <6000>;
-     regulator-initial-mode = <3>;
+     regulator-initial-mode = <1>;
     };
 
     buck8_reg: BUCK8 {
@@ -10988,7 +10985,7 @@ samsung,tmu_sensor_type = <0x8>;
      regulator-max-microvolt = <950000>;
      regulator-always-on;
      regulator-ramp-delay = <6000>;
-     regulator-initial-mode = <3>;
+     regulator-initial-mode = <2>;
     };
 
     buck10_reg: BUCK10 {
