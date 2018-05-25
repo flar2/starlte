@@ -263,7 +263,13 @@
   uart1_bus_single: uart1-bus {
    samsung,pins = "gpq0-3", "gpq0-2", "gpq0-1", "gpq0-0";
    samsung,pin-function = <2>;
+   samsung,pin-drv = <0>;
    samsung,pin-pud = <0>;
+  };
+
+  uart1_rxd_pull: uart1-bus-rxd {
+   samsung,pins = "gpq0-0";
+   samsung,pin-pud = <3>;
   };
 
   uart1_bus_rts: uart1-bus-rts {
@@ -2181,7 +2187,7 @@
   reg = <0x0 0x14064008 0x20>;
   cal_id = <0xB1380001>;
   need_smc = <0x16A10204>;
-  status = "okay";
+  status = "disabled";
  };
 
  pd_dcpost: pd-dcpost@14064010 {
@@ -2189,7 +2195,7 @@
   reg = <0x0 0x14064010 0x20>;
   cal_id = <0xB1380002>;
   need_smc = <0x16B10204>;
-  status = "okay";
+  status = "disabled";
   parent = <&pd_dcf>;
  };
 
@@ -2198,7 +2204,7 @@
   reg = <0x0 0x14064018 0x20>;
   cal_id = <0xB1380003>;
   need_smc = <0x16810204>;
-  status = "okay";
+  status = "disabled";
  };
 
  pd_dpu: pd-dpu@14064020 {
@@ -2726,6 +2732,7 @@
    input_booster,kfc_freqs = <0>;
    input_booster,mif_freqs = <0>;
    input_booster,int_freqs = <0>;
+   input_booster,dma_latency = <0>;
 
 
    input_booster,head_times = <500>;
@@ -2745,6 +2752,7 @@
    input_booster,kfc_freqs = <0>;
    input_booster,mif_freqs = <0>;
    input_booster,int_freqs = <0>;
+   input_booster,dma_latency = <0>;
 
 
    input_booster,head_times = <0>;
@@ -2764,6 +2772,7 @@
    input_booster,kfc_freqs = <832000 832000 832000>;
    input_booster,mif_freqs = <0 0 0>;
    input_booster,int_freqs = <0 0 0>;
+   input_booster,dma_latency = <0 0 0>;
 
 
    input_booster,head_times = <130 130 0>;
@@ -2783,6 +2792,7 @@
    input_booster,kfc_freqs = <832000 832000>;
    input_booster,mif_freqs = <0 0>;
    input_booster,int_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <1000 0>;
@@ -2802,6 +2812,7 @@
    input_booster,kfc_freqs = <832000 832000>;
    input_booster,mif_freqs = <0 0>;
    input_booster,int_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <130 130>;
@@ -2821,6 +2832,7 @@
    input_booster,kfc_freqs = <832000 832000>;
    input_booster,mif_freqs = <0 0>;
    input_booster,int_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <130 0>;
@@ -2840,6 +2852,7 @@
    input_booster,kfc_freqs = <832000 0>;
    input_booster,mif_freqs = <0 0>;
    input_booster,int_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <130 0>;
@@ -2859,6 +2872,7 @@
    input_booster,kfc_freqs = <832000 832000>;
    input_booster,mif_freqs = <0 0>;
    input_booster,int_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <130 0>;
@@ -2877,6 +2891,7 @@
    input_booster,hmp_boost = <1 1>;
    input_booster,kfc_freqs = <832000 832000>;
    input_booster,bimc_freqs = <0 0>;
+   input_booster,dma_latency = <0 0>;
 
 
    input_booster,head_times = <200 0>;
@@ -2895,6 +2910,7 @@
    input_booster,kfc_freqs = <0>;
    input_booster,mif_freqs = <0>;
    input_booster,int_freqs = <0>;
+   input_booster,dma_latency = <0>;
 
 
    input_booster,head_times = <700>;
@@ -3476,8 +3492,8 @@
           <40>, <41>, <42>, <43>, <44>, <45>, <46>, <47>, <48>, <49>,
           <50>, <51>, <52>, <53>, <54>, <55>, <56>, <57>, <58>, <59>,
           <60>, <61>, <62>, <63>, <64>, <65>, <66>, <67>, <68>, <69>,
-                <71>, <72>, <73>, <74>, <75>, <76>, <77>, <78>, <79>,
-          <80>, <81>, <82>, <83>, <85>, <86>, <96>;
+          <74>, <75>, <76>, <77>, <78>, <79>, <80>, <81>, <82>, <83>,
+          <85>, <86>, <96>;
    };
   };
 
@@ -7106,7 +7122,7 @@
   samsung,fifo-size = <256>;
   interrupts = <0 422 0>;
   pinctrl-names = "default", "rts";
-  pinctrl-0 = <&uart1_bus_single>;
+  pinctrl-0 = <&uart1_bus_single>, <&uart1_rxd_pull>;
   pinctrl-1 = <&uart1_bus_rts>;
   samsung,usi-serial-v2;
   clocks = <&clock ((250) + 12)>, <&clock ((250) + 18)>;
@@ -13092,13 +13108,13 @@ samsung,tmu_sensor_type = <0x8>;
    battery,charger_name = "max77705-charger";
    battery,fuelgauge_name = "max77705-fuelgauge";
    battery,wireless_charger_name = "mfc-charger";
-   battery,fod_wpc_data = <150 52 142 44 150 30 150 22 165 (-21) 156 13>;
-   battery,fod_pma_data = <150 52 142 44 150 30 150 22 165 (-21) 156 13>;
-   battery,fod_a4wp_data = <150 52 142 44 150 30 150 22 165 (-21) 156 13>;
-   battery,fod_wpc_data_cv = <150 82 142 74 150 60 150 52 165 9 156 43>;
-   battery,fod_pma_data_cv = <150 82 142 74 150 60 150 52 165 9 156 43>;
-   battery,fod_a4wp_data_cv = <150 82 142 74 150 60 150 52 165 9 156 43>;
-   battery,fod_hero_5v_data = <150 2 142 (-6) 150 (-20) 150 (-28) 165 185 156 (-37)>;
+   battery,fod_wpc_data = <150 52 142 44 150 30 150 22 165 235 156 11>;
+   battery,fod_pma_data = <150 52 142 44 150 30 150 22 165 235 156 11>;
+   battery,fod_a4wp_data = <150 52 142 44 150 30 150 22 165 235 156 11>;
+   battery,fod_wpc_data_cv = <150 82 142 74 150 60 150 52 165 255 156 41>;
+   battery,fod_pma_data_cv = <150 82 142 74 150 60 150 52 165 255 156 41>;
+   battery,fod_a4wp_data_cv = <150 82 142 74 150 60 150 52 165 255 156 41>;
+   battery,fod_hero_5v_data = <150 2 142 (-6) 150 (-20) 150 (-28) 165 185 156 (-39)>;
    battery,wpc_cc_cv_vout = <5500>;
    battery,wpc_cv_call_vout = <5000>;
    battery,wpc_cc_call_vout = <5000>;
@@ -13228,8 +13244,9 @@ samsung,tmu_sensor_type = <0x8>;
 
   battery,wpc_store_high_temp = <360>;
   battery,wpc_store_high_temp_recovery = <340>;
-  battery,wpc_store_lcd_on_high_temp = <380>;
+  battery,wpc_store_lcd_on_high_temp = <360>;
   battery,wpc_store_lcd_on_high_temp_rec = <300>;
+  battery,wpc_store_lcd_on_charging_limit_current = <400>;
 
   battery,sleep_mode_limit_current = <500>;
   battery,wc_full_input_limit_current = <100>;
