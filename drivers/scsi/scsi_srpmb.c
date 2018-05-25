@@ -224,7 +224,7 @@ static void srpmb_worker(struct work_struct *data)
 	}
 
 	__pm_relax(&rpmb_ctx->wakesrc);
-	dev_info(dev, "finish rpmb workqueue with command(%d)\n", req->type);
+	dev_info(&sr_pdev->dev, "finish rpmb workqueue with command(%d)\n", req->type);
 }
 
 static int srpmb_suspend_notifier(struct notifier_block *nb, unsigned long event,
