@@ -2023,7 +2023,7 @@ EXPORT_SYMBOL_GPL(maxdsm_set_v_validation_mode);
 
 int maxdsm_set_amp_screen_validation_mode(int on)
 {
-	int index, ret = 0;
+	int index = 0, ret = 0;
 	int i = 0;
 
 	for (i = 0 ; i < 2 ; i++) {

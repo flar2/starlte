@@ -539,7 +539,7 @@ static int __abox_process_ipc(struct device *dev, struct abox_data *data,
 
 	void __iomem *tx_base = data->sram_base + data->ipc_tx_offset;
 	void __iomem *tx_ack = data->sram_base + data->ipc_tx_ack_offset;
-	int ret, i;
+	int ret = 0, i;
 
 	dev_dbg(dev, "%s(%d, %d, %d)\n", __func__, hw_irq,
 			msg->ipcid, msg->msg.system.msgtype);

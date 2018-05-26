@@ -69,7 +69,6 @@ static void srpmb_worker(struct work_struct *data)
 	struct rpmb_packet packet;
 	struct rpmb_irq_ctx *rpmb_ctx;
 	struct scsi_device *sdp;
-	struct device *dev = NULL;
 	Rpmb_Req *req;
 
 	if (!data) {
