@@ -34,5 +34,6 @@ obj-$(CONFIG_INPUT_KEYCOMBO)	+= keycombo.o
 obj-$(CONFIG_HALL)		+= hall.o
 obj-$(CONFIG_CERTIFY_HALL)	+= certify_hall.o
 
+obj-$(CONFIG_SEC_AUTO_INPUT)	+= sec_auto_input.o
 
 obj-$(CONFIG_RMI4_CORE)		+= rmi4/
