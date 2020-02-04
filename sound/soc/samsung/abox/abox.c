@@ -3391,7 +3391,7 @@ static void abox_change_cpu_gear(struct device *dev, struct abox_data *data)
 {
 	struct abox_qos_request *request;
 	unsigned int gear = UINT_MAX;
-	s32 freq;
+	s32 freq = 0;
 
 	dev_dbg(dev, "%s\n", __func__);
 

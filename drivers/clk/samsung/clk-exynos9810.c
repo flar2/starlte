@@ -488,7 +488,7 @@ void exynos9810_vclk_init(void)
 /* register exynos9810 clocks */
 void __init exynos9810_clk_init(struct device_node *np)
 {
-	void __iomem *reg_base;
+	void __iomem *reg_base = NULL;
 	int ret;
 
 	if (np) {

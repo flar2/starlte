@@ -284,7 +284,7 @@ static int fimc_is_hw_isp_shot(struct fimc_is_hw_ip *hw_ip, struct fimc_is_frame
 	struct isp_param_set *param_set;
 	struct is_region *region;
 	struct isp_param *param;
-	u32 lindex, hindex;
+	u32 lindex = 0, hindex = 0;
 	bool frame_done = false;
 	u32 fcount = frame->fcount + frame->cur_buf_index;
 

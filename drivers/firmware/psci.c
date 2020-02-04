@@ -430,7 +430,7 @@ static u32 psci_power_state_pack(u32 id, u32 type, u32 affinity_level)
  */
 static int psci_suspend_customized_finisher(unsigned long index)
 {
-	u32 state;
+	u32 state = 0;
 
 	switch (index) {
 	case PSCI_CLUSTER_SLEEP:

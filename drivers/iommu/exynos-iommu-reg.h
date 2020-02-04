@@ -158,7 +158,7 @@ static inline void dump_sysmmu_tlb_port(struct sysmmu_drvdata *drvdata,
 	int t, i, j, k;
 	u32 capa0, capa1, info;
 	u32 sbb_vpn, sbb_link;
-	unsigned int cnt;
+	unsigned int cnt = 0;
 	int num_tlb, num_port, num_sbb;
 	void __iomem *sfrbase = drvdata->sfrbase;
 

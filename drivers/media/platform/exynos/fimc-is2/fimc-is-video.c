@@ -897,7 +897,7 @@ int fimc_is_queue_buffer_queue(struct fimc_is_queue *queue,
 	struct fimc_is_vb2_buf *vbuf = vb_to_fimc_is_vb2_buf(vb2_v4l2_buf);
 	struct dma_buf *dmabuf;
 	struct dma_buf *bufs[FIMC_IS_MAX_PLANES];
-	int batch_size;
+	int batch_size = 0;
 	int buf_i, buf_k;
 	int image_planes;
 	int meta_planes = 1;

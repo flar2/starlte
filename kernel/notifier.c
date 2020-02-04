@@ -80,7 +80,7 @@ static int notifier_call_chain(struct notifier_block **nl,
 	int ret = NOTIFY_DONE;
 	struct notifier_block *nb, *next_nb;
 #ifdef CONFIG_DEBUG_NOTIFIERS_PRINT_ELAPSED_TIME
-	unsigned long start, end;
+	unsigned long start = 0, end;
 	int elapsed;
 #endif
 
